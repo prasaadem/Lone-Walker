@@ -10,6 +10,7 @@ import UIKit
 
 class DistanceInfoTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var destinationLabel: UILabel!
     @IBOutlet weak var sourceLabel: UILabel!
     @IBOutlet weak var precipitationLabel: UILabel!

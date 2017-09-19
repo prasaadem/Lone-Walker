@@ -110,16 +110,20 @@ class ScrollableBottomSheetViewController: UIViewController,UITableViewDelegate,
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 676
-//        return 165
+//        return 676
+        return 180
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "distance", for: indexPath) as! DistanceInfoTableViewCell
-//        print(routeSteps[indexPath.row].instructions)
+        if indexPath.row == 0{
+            cell.sourceLabel.text = "Current Location"
+        }else{
+            cell.sourceLabel.text = routeSteps[indexPath.row-1].instructions
+        }
         cell.destinationLabel.text = routeSteps[indexPath.row].instructions
-//        let distance = Double(routeSteps[indexPath.row].distance)
-//        cell.distance.text = "\(distance)"
+        let distance = Double(routeSteps[indexPath.row].distance)
+        cell.distanceLabel.text = "\(distance)"
         cell.climateLabel.text = "\(routeSteps[indexPath.row].weatherDataModel.temperature)℃"
         cell.climateImageView.image = UIImage(named: routeSteps[indexPath.row].weatherDataModel.weatherIconName)
         return cell
