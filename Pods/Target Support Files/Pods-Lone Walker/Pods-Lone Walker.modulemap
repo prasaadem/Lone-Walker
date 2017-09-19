@@ -1,0 +1,6 @@
+framework module Pods_Lone_Walker {
+  umbrella header "Pods-Lone Walker-umbrella.h"
+
+  export *
+  module * { export * }
+}
