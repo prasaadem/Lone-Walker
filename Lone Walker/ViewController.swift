@@ -133,9 +133,8 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate,UIS
                             routeStep.transportType = step.transportType
                             routeStep.polyline = step.polyline
                             routeStep.weatherDataModel = data
-                            print("\(data.temperature)")
                             childViewController.routeSteps.append(routeStep)
-                            childViewController.tableView .reloadData()
+                            childViewController.tableView.reloadData()
                         }
                     }else{
                         print("Error \(String(describing: response.result.error))")
@@ -144,7 +143,6 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate,UIS
             }
 //            childViewController.tableView .isHidden = false
             self.mapKitView.add(route.polyline, level: .aboveRoads)
-            
             let rect = route.polyline.boundingMapRect
             self.mapKitView.setRegion(MKCoordinateRegionForMapRect(rect), animated: true)
         }

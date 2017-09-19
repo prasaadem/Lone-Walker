@@ -7,11 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C81D76221F709C95003CD5BB /* DefaultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C81D761E1F709C94003CD5BB /* DefaultTableViewCell.xib */; };
-		C81D76231F709C95003CD5BB /* DefaultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81D761F1F709C94003CD5BB /* DefaultTableViewCell.swift */; };
+		C803C55F1F711D4600791561 /* DistanceInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C803C55D1F711D4600791561 /* DistanceInfoTableViewCell.swift */; };
+		C803C5601F711D4600791561 /* DistanceInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C803C55E1F711D4600791561 /* DistanceInfoTableViewCell.xib */; };
 		C81D76251F709C95003CD5BB /* ScrollableBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81D76211F709C95003CD5BB /* ScrollableBottomSheetViewController.swift */; };
 		C81D76271F70B6F7003CD5BB /* WeatherDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81D76261F70B6F7003CD5BB /* WeatherDataModel.swift */; };
-		C81D76291F70FAA6003CD5BB /* FoldingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81D76281F70FAA5003CD5BB /* FoldingCell.swift */; };
 		C8F6EE051F70438000E2C314 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F6EE041F70438000E2C314 /* AppDelegate.swift */; };
 		C8F6EE071F70438000E2C314 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F6EE061F70438000E2C314 /* ViewController.swift */; };
 		C8F6EE0A1F70438000E2C314 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8F6EE081F70438000E2C314 /* Main.storyboard */; };
@@ -25,11 +24,10 @@
 		28D758DA37205C4B7937B9AC /* Pods-Lone Walker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lone Walker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Lone Walker/Pods-Lone Walker.debug.xcconfig"; sourceTree = "<group>"; };
 		2BDBADD3ABFF835A73ABA18C /* Pods_Lone_Walker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lone_Walker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A421632AFAB820B53E784FAE /* Pods-Lone Walker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lone Walker.release.xcconfig"; path = "Pods/Target Support Files/Pods-Lone Walker/Pods-Lone Walker.release.xcconfig"; sourceTree = "<group>"; };
-		C81D761E1F709C94003CD5BB /* DefaultTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DefaultTableViewCell.xib; sourceTree = "<group>"; };
-		C81D761F1F709C94003CD5BB /* DefaultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultTableViewCell.swift; sourceTree = "<group>"; };
+		C803C55D1F711D4600791561 /* DistanceInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceInfoTableViewCell.swift; sourceTree = "<group>"; };
+		C803C55E1F711D4600791561 /* DistanceInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DistanceInfoTableViewCell.xib; sourceTree = "<group>"; };
 		C81D76211F709C95003CD5BB /* ScrollableBottomSheetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollableBottomSheetViewController.swift; sourceTree = "<group>"; };
 		C81D76261F70B6F7003CD5BB /* WeatherDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherDataModel.swift; sourceTree = "<group>"; };
-		C81D76281F70FAA5003CD5BB /* FoldingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoldingCell.swift; sourceTree = "<group>"; };
 		C8F6EE011F70438000E2C314 /* Lone Walker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lone Walker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8F6EE041F70438000E2C314 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C8F6EE061F70438000E2C314 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -90,10 +88,7 @@
 		C8F6EE031F70438000E2C314 /* Lone Walker */ = {
 			isa = PBXGroup;
 			children = (
-				C81D76281F70FAA5003CD5BB /* FoldingCell.swift */,
 				C81D76261F70B6F7003CD5BB /* WeatherDataModel.swift */,
-				C81D761F1F709C94003CD5BB /* DefaultTableViewCell.swift */,
-				C81D761E1F709C94003CD5BB /* DefaultTableViewCell.xib */,
 				C81D76211F709C95003CD5BB /* ScrollableBottomSheetViewController.swift */,
 				C8F6EE041F70438000E2C314 /* AppDelegate.swift */,
 				C8F6EE061F70438000E2C314 /* ViewController.swift */,
@@ -102,6 +97,8 @@
 				C8F6EE0D1F70438000E2C314 /* LaunchScreen.storyboard */,
 				C8F6EE101F70438000E2C314 /* Info.plist */,
 				C8F6EE1C1F70692600E2C314 /* RouteStep.swift */,
+				C803C55D1F711D4600791561 /* DistanceInfoTableViewCell.swift */,
+				C803C55E1F711D4600791561 /* DistanceInfoTableViewCell.xib */,
 			);
 			path = "Lone Walker";
 			sourceTree = "<group>";
@@ -169,7 +166,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C8F6EE0F1F70438000E2C314 /* LaunchScreen.storyboard in Resources */,
-				C81D76221F709C95003CD5BB /* DefaultTableViewCell.xib in Resources */,
+				C803C5601F711D4600791561 /* DistanceInfoTableViewCell.xib in Resources */,
 				C8F6EE0C1F70438000E2C314 /* Assets.xcassets in Resources */,
 				C8F6EE0A1F70438000E2C314 /* Main.storyboard in Resources */,
 			);
@@ -241,10 +238,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C81D76251F709C95003CD5BB /* ScrollableBottomSheetViewController.swift in Sources */,
-				C81D76291F70FAA6003CD5BB /* FoldingCell.swift in Sources */,
 				C8F6EE1D1F70692600E2C314 /* RouteStep.swift in Sources */,
+				C803C55F1F711D4600791561 /* DistanceInfoTableViewCell.swift in Sources */,
 				C81D76271F70B6F7003CD5BB /* WeatherDataModel.swift in Sources */,
-				C81D76231F709C95003CD5BB /* DefaultTableViewCell.swift in Sources */,
 				C8F6EE071F70438000E2C314 /* ViewController.swift in Sources */,
 				C8F6EE051F70438000E2C314 /* AppDelegate.swift in Sources */,
 			);

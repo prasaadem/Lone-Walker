@@ -28,7 +28,7 @@ class ScrollableBottomSheetViewController: UIViewController,UITableViewDelegate,
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UINib(nibName: "DefaultTableViewCell", bundle: nil), forCellReuseIdentifier: "default")
+        tableView.register(UINib(nibName: "DistanceInfoTableViewCell", bundle: nil), forCellReuseIdentifier: "distance")
 //        tableView.register(DefaultTableViewCell.self, forCellReuseIdentifier: "default")
         
         let gesture = UIPanGestureRecognizer.init(target: self, action: #selector(ScrollableBottomSheetViewController.panGesture))
@@ -110,16 +110,18 @@ class ScrollableBottomSheetViewController: UIViewController,UITableViewDelegate,
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        return 676
+//        return 165
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "default", for: indexPath) as! DefaultTableViewCell
-        cell.instructions.text = routeSteps[indexPath.row].instructions
-        let distance = Double(routeSteps[indexPath.row].distance)
-        cell.distance.text = "\(distance)"
-        cell.notice.text = "\(routeSteps[indexPath.row].weatherDataModel.temperature)℃"
-        cell.weatherImageView.image = UIImage(named: routeSteps[indexPath.row].weatherDataModel.weatherIconName)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "distance", for: indexPath) as! DistanceInfoTableViewCell
+//        print(routeSteps[indexPath.row].instructions)
+        cell.destinationLabel.text = routeSteps[indexPath.row].instructions
+//        let distance = Double(routeSteps[indexPath.row].distance)
+//        cell.distance.text = "\(distance)"
+        cell.climateLabel.text = "\(routeSteps[indexPath.row].weatherDataModel.temperature)℃"
+        cell.climateImageView.image = UIImage(named: routeSteps[indexPath.row].weatherDataModel.weatherIconName)
         return cell
     }
 }
