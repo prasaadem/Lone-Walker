@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ScrollableBottomSheetViewController: UIViewController {
+class ScrollableBottomSheetViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var placeName: UILabel!
@@ -29,6 +29,7 @@ class ScrollableBottomSheetViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "DefaultTableViewCell", bundle: nil), forCellReuseIdentifier: "default")
+//        tableView.register(DefaultTableViewCell.self, forCellReuseIdentifier: "default")
         
         let gesture = UIPanGestureRecognizer.init(target: self, action: #selector(ScrollableBottomSheetViewController.panGesture))
         gesture.delegate = self
@@ -91,7 +92,7 @@ class ScrollableBottomSheetViewController: UIViewController {
     
     
     func prepareBackgroundView(){
-        let blurEffect = UIBlurEffect.init(style: .dark)
+        let blurEffect = UIBlurEffect.init(style: .extraLight)
         let visualEffect = UIVisualEffectView.init(effect: blurEffect)
         let bluredView = UIVisualEffectView.init(effect: blurEffect)
         bluredView.contentView.addSubview(visualEffect)
@@ -99,9 +100,6 @@ class ScrollableBottomSheetViewController: UIViewController {
         bluredView.frame = UIScreen.main.bounds
         view.insertSubview(bluredView, at: 0)
     }
-}
-
-extension ScrollableBottomSheetViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1

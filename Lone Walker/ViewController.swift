@@ -54,8 +54,10 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate,UIS
     }
     
     func addBottomSheetView() {
-            let bottomSheetVC = ScrollableBottomSheetViewController()
-            
+        
+        let storyBoard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let bottomSheetVC:ScrollableBottomSheetViewController = storyBoard.instantiateViewController(withIdentifier: "bottomSheet") as! ScrollableBottomSheetViewController
+        
             self.addChildViewController(bottomSheetVC)
             self.view.addSubview(bottomSheetVC.view)
             bottomSheetVC.didMove(toParentViewController: self)
@@ -252,10 +254,10 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate,UIS
     func updateUIWithWeatherData(){
         let childViewController:ScrollableBottomSheetViewController = self.childViewControllers[0] as! ScrollableBottomSheetViewController
         
-        childViewController.placeName.text = weatherDataModel.city
-        childViewController.temperatureLabel.text = "\(weatherDataModel.temperature)°C"
-        childViewController.weatherImageView.image = UIImage(named: weatherDataModel.weatherIconName)
-        childViewController.placemark.text = weatherDataModel.weatherIconName
+        childViewController.placeName?.text = weatherDataModel.city
+        childViewController.temperatureLabel?.text = "\(weatherDataModel.temperature)°C"
+        childViewController.weatherImageView?.image = UIImage(named: weatherDataModel.weatherIconName)
+        childViewController.placemark?.text = weatherDataModel.weatherIconName
     }
     
     //MARK: - Location Manager Delegate Methods
