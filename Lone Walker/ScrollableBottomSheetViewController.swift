@@ -128,6 +128,12 @@ class ScrollableBottomSheetViewController: UIViewController,UITableViewDelegate,
         cell.climateImageView.image = UIImage(named: routeSteps[indexPath.row].weatherDataModel.weatherIconName)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.willMove(toParentViewController: nil)
+        view.removeFromSuperview()
+        self.removeFromParentViewController()
+    }
 }
 
 extension ScrollableBottomSheetViewController: UIGestureRecognizerDelegate {

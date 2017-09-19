@@ -44,8 +44,6 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate,UIS
         }
         
         sourceLocation = (locationManager.location?.coordinate)!
-//        let destinationLocation = CLLocationCoordinate2DMake(44.8024,-91.4693)
-//        getDirections(destinationLocation: destinationLocation)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -54,10 +52,10 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate,UIS
     }
     
     func addBottomSheetView() {
-        
-        let storyBoard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let bottomSheetVC:ScrollableBottomSheetViewController = storyBoard.instantiateViewController(withIdentifier: "bottomSheet") as! ScrollableBottomSheetViewController
-        
+        if self.childViewControllers.count == 0{
+            let storyBoard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let bottomSheetVC:ScrollableBottomSheetViewController = storyBoard.instantiateViewController(withIdentifier: "bottomSheet") as! ScrollableBottomSheetViewController
+            
             self.addChildViewController(bottomSheetVC)
             self.view.addSubview(bottomSheetVC.view)
             bottomSheetVC.didMove(toParentViewController: self)
@@ -65,6 +63,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate,UIS
             let height = view.frame.height
             let width  = view.frame.width
             bottomSheetVC.view.frame = CGRect(x: 0, y: self.view.frame.maxY, width: width, height: height)
+        }
     }
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
@@ -76,7 +75,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate,UIS
     }
     
     func getDirections(){
-        
+
         let annotation = MKPointAnnotation()
         annotation.coordinate = sourceLocation
         self.mapKitView.addAnnotation(annotation)
@@ -155,6 +154,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate,UIS
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        addBottomSheetView()
         UIApplication.shared.beginIgnoringInteractionEvents()
         let activityIndicator = UIActivityIndicatorView()
         activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray

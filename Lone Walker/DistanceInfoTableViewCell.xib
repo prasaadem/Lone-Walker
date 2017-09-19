@@ -21,15 +21,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="distance" rowHeight="181" id="KGk-i7-Jjw" customClass="DistanceInfoTableViewCell" customModule="Lone_Walker" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="distance" rowHeight="181" id="KGk-i7-Jjw" customClass="DistanceInfoTableViewCell" customModule="Lone_Walker" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="500" height="181"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="500" height="180.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="467" height="180.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WtD-bc-wQn" userLabel="Foreground" customClass="RotatedView" customModule="FoldingCell">
-                        <rect key="frame" x="0.0" y="8" width="492" height="165"/>
+                        <rect key="frame" x="0.0" y="8" width="459" height="165"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kqo-nD-5Ux" userLabel="LeftView">
                                 <rect key="frame" x="0.0" y="0.0" width="88" height="165"/>
@@ -78,26 +78,26 @@
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cp0-YW-DkF" userLabel="line">
-                                <rect key="frame" x="120" y="52" width="356" height="1"/>
+                                <rect key="frame" x="120" y="52" width="323" height="1"/>
                                 <color key="backgroundColor" red="0.87843137250000003" green="0.87843137250000003" blue="0.87843137250000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="sAb-Aq-NgK"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="W 85th St, New York, 10024 " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="Rt9-rb-yz7" userLabel="W 85th St, New York, 10024">
-                                <rect key="frame" x="124" y="28" width="358" height="16.5"/>
+                                <rect key="frame" x="124" y="28" width="325" height="16.5"/>
                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.23921568630000001" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E 30th St, New York, 10016" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="NpL-zy-w6Y" userLabel="W 85th St, New York, 10024">
-                                <rect key="frame" x="124" y="57" width="358" height="16.5"/>
+                                <rect key="frame" x="124" y="57" width="325" height="16.5"/>
                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.23921568630000001" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cTk-zw-vnu" userLabel="RightView">
-                                <rect key="frame" x="364.5" y="100" width="127.5" height="40"/>
+                                <rect key="frame" x="342.5" y="100" width="116.5" height="40"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PRECIPITATION" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tm5-Qa-rDQ">
                                         <rect key="frame" x="0.0" y="0.0" width="72" height="12"/>
@@ -121,7 +121,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fdl-Px-95M" userLabel="CenterView">
-                                <rect key="frame" x="236.5" y="100" width="127" height="40"/>
+                                <rect key="frame" x="225.5" y="100" width="116" height="40"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DISTANCE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yQ4-J5-2dI">
                                         <rect key="frame" x="0.0" y="0.0" width="48" height="12"/>
@@ -145,7 +145,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r2j-40-SLX" userLabel="LeftVoew">
-                                <rect key="frame" x="108" y="100" width="127.5" height="40"/>
+                                <rect key="frame" x="108" y="100" width="116.5" height="40"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CLIMATE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FvY-mu-7kr">
                                         <rect key="frame" x="0.0" y="0.0" width="41.5" height="12"/>
