@@ -36,13 +36,13 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate,UIS
         }
         
         sourceLocation = (locationManager.location?.coordinate)!
-        let destinationLocation = CLLocationCoordinate2DMake(44.8024,-91.4693)
-        getDirections(destinationLocation: destinationLocation)
+//        let destinationLocation = CLLocationCoordinate2DMake(44.8024,-91.4693)
+//        getDirections(destinationLocation: destinationLocation)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        addBottomSheetView()
+        self.addBottomSheetView()
     }
     
     func addBottomSheetView() {
@@ -98,14 +98,18 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate,UIS
             let overlays = self.mapKitView.overlays
             self.mapKitView.removeOverlays(overlays)
             let route = response.routes[0]
+            let childViewController:ScrollableBottomSheetViewController = self.childViewControllers[0] as! ScrollableBottomSheetViewController
+            childViewController.routeSteps = [RouteStep]()
             for step in route.steps {
                 let routeStep = RouteStep()
                 routeStep.distance = step.distance
                 routeStep.instructions = step.instructions
                 routeStep.notice = step.notice
                 routeStep.transportType = step.transportType
-//                print(routeStep)
+                childViewController.routeSteps.append(routeStep)
+//                print(routeStep.notice)
             }
+            childViewController.tableView .reloadData()
             self.mapKitView.add(route.polyline, level: .aboveRoads)
             
             let rect = route.polyline.boundingMapRect
@@ -165,8 +169,10 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate,UIS
                 
                 let region = MKCoordinateRegionMake(coordinate, span)
                 self.mapKitView.setRegion(region, animated: true)
-                print("***************************")
-                print(response?.mapItems[0])
+                let childViewController:ScrollableBottomSheetViewController = self.childViewControllers[0] as! ScrollableBottomSheetViewController
+                childViewController.placeName.text = response?.mapItems[0].name
+                childViewController.placemark.text = "Minneapolis, Minneapolis, MN, United States"
+            
             }
         }
     }

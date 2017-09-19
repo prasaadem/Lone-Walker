@@ -7,10 +7,18 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeueLights.ttc">
+            <string>HelveticaNeue-Light</string>
+            <string>HelveticaNeue-Thin</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ScrollableBottomSheetViewController" customModule="Lone_Walker" customModuleProvider="target">
             <connections>
                 <outlet property="headerView" destination="Jqb-lC-sL5" id="2Bt-iO-hyv"/>
+                <outlet property="placeName" destination="dO6-ZG-J4F" id="sNF-Dc-sMc"/>
+                <outlet property="placemark" destination="9Ad-S8-Uzf" id="S52-ab-h5k"/>
                 <outlet property="tableView" destination="GSW-2o-otm" id="qZN-2R-jqt"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -25,9 +33,31 @@
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jqb-lC-sL5">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Place Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dO6-ZG-J4F">
+                                    <rect key="frame" x="8" y="8" width="359" height="19"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="placemark" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ad-S8-Uzf">
+                                    <rect key="frame" x="8" y="27" width="359" height="19.5"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="14"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
+                                <constraint firstAttribute="trailing" secondItem="dO6-ZG-J4F" secondAttribute="trailing" constant="8" id="AYC-4A-Jm6"/>
+                                <constraint firstItem="9Ad-S8-Uzf" firstAttribute="leading" secondItem="dO6-ZG-J4F" secondAttribute="leading" id="CzE-i3-9vB"/>
+                                <constraint firstItem="9Ad-S8-Uzf" firstAttribute="height" secondItem="dO6-ZG-J4F" secondAttribute="height" id="OpZ-wv-ieM"/>
+                                <constraint firstItem="dO6-ZG-J4F" firstAttribute="top" secondItem="Jqb-lC-sL5" secondAttribute="top" constant="8" id="Rcb-Av-Hsi"/>
+                                <constraint firstItem="9Ad-S8-Uzf" firstAttribute="top" secondItem="dO6-ZG-J4F" secondAttribute="bottom" id="T5N-tq-wUl"/>
                                 <constraint firstAttribute="height" constant="50" id="Tl2-jg-Adq"/>
+                                <constraint firstItem="dO6-ZG-J4F" firstAttribute="leading" secondItem="Jqb-lC-sL5" secondAttribute="leading" constant="8" id="fd0-fG-Ax9"/>
+                                <constraint firstItem="dO6-ZG-J4F" firstAttribute="centerX" secondItem="Jqb-lC-sL5" secondAttribute="centerX" id="jFF-qt-63l"/>
+                                <constraint firstItem="9Ad-S8-Uzf" firstAttribute="trailing" secondItem="dO6-ZG-J4F" secondAttribute="trailing" id="yAx-pM-Xcx"/>
                             </constraints>
                         </view>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GSW-2o-otm">
@@ -44,6 +74,7 @@
                 <constraint firstAttribute="bottom" secondItem="Erf-d4-QVB" secondAttribute="bottom" id="Yc9-9T-ctS"/>
                 <constraint firstAttribute="trailing" secondItem="Erf-d4-QVB" secondAttribute="trailing" id="ibQ-ba-cnb"/>
             </constraints>
+            <point key="canvasLocation" x="34.5" y="53.5"/>
         </view>
     </objects>
 </document>

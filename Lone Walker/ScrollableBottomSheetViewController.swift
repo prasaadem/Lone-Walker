@@ -11,6 +11,10 @@ import UIKit
 class ScrollableBottomSheetViewController: UIViewController {
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var placeName: UILabel!
+    @IBOutlet weak var placemark: UILabel!
+    
+    var routeSteps:Array = [RouteStep]()
     
     let fullView: CGFloat = 100
     var partialView: CGFloat {
@@ -100,7 +104,7 @@ extension ScrollableBottomSheetViewController: UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 30
+        return routeSteps.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -109,7 +113,11 @@ extension ScrollableBottomSheetViewController: UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "default", for: indexPath) as! DefaultTableViewCell
-        cell.textLabel?.text = "Dummy Cell"
+        cell.instructions.text = routeSteps[indexPath.row].instructions
+        let distance = Double(routeSteps[indexPath.row].distance)
+        cell.distance.text = "\(distance)"
+        cell.notice.text = routeSteps[indexPath.row].notice
+        
         return cell
     }
 }

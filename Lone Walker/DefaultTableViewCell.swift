@@ -10,7 +10,10 @@ import UIKit
 
 class DefaultTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var instructions: UILabel!
+    @IBOutlet weak var notice: UILabel!
+    @IBOutlet weak var distance: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
