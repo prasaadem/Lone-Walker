@@ -13,6 +13,8 @@ class ScrollableBottomSheetViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var placeName: UILabel!
     @IBOutlet weak var placemark: UILabel!
+    @IBOutlet weak var temperatureLabel: UILabel!
+    @IBOutlet weak var weatherImageView: UIImageView!
     
     var routeSteps:Array = [RouteStep]()
     
@@ -31,9 +33,9 @@ class ScrollableBottomSheetViewController: UIViewController {
         let gesture = UIPanGestureRecognizer.init(target: self, action: #selector(ScrollableBottomSheetViewController.panGesture))
         gesture.delegate = self
         view.addGestureRecognizer(gesture)
-        if routeSteps.count == 0 {
-            tableView.isHidden = true
-        }
+//        if routeSteps.count == 0 {
+//            tableView.isHidden = true
+//        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -118,8 +120,8 @@ extension ScrollableBottomSheetViewController: UITableViewDelegate, UITableViewD
         cell.instructions.text = routeSteps[indexPath.row].instructions
         let distance = Double(routeSteps[indexPath.row].distance)
         cell.distance.text = "\(distance)"
-        cell.notice.text = routeSteps[indexPath.row].notice
-        
+        cell.notice.text = "\(routeSteps[indexPath.row].weatherDataModel.temperature)℃"
+        cell.weatherImageView.image = UIImage(named: routeSteps[indexPath.row].weatherDataModel.weatherIconName)
         return cell
     }
 }

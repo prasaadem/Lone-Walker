@@ -5,15 +5,9 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="HelveticaNeueLights.ttc">
-            <string>HelveticaNeue-Light</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Lone Walker-->
         <scene sceneID="tne-QT-ifu">
@@ -26,66 +20,12 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Y0-p0-KkE">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </mapView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="DcY-4c-wcJ">
-                                <rect key="frame" x="8" y="64" width="359" height="80"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CBN-Z2-Qsb">
-                                        <rect key="frame" x="0.0" y="0.0" width="56.5" height="80"/>
-                                    </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="0Ge-Ax-Uvd">
-                                        <rect key="frame" x="76.5" y="0.0" width="282.5" height="80"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="CTD-bt-NZi">
-                                                <rect key="frame" x="0.0" y="0.0" width="205.5" height="80"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JEo-tF-B9N">
-                                                        <rect key="frame" x="0.0" y="0.0" width="99.5" height="40"/>
-                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="22"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7wg-CK-nPo">
-                                                        <rect key="frame" x="0.0" y="40" width="106" height="40"/>
-                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="22"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                            </stackView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3bT-Nw-mcF">
-                                                <rect key="frame" x="213.5" y="0.0" width="69" height="80"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="25"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="3bT-Nw-mcF" firstAttribute="top" secondItem="0Ge-Ax-Uvd" secondAttribute="top" id="2ZH-Ab-h0r"/>
-                                            <constraint firstItem="CTD-bt-NZi" firstAttribute="top" secondItem="0Ge-Ax-Uvd" secondAttribute="top" id="SFJ-KH-jbj"/>
-                                            <constraint firstItem="3bT-Nw-mcF" firstAttribute="width" secondItem="CTD-bt-NZi" secondAttribute="width" multiplier="1:3" id="ghJ-qj-LEz"/>
-                                            <constraint firstAttribute="bottom" secondItem="CTD-bt-NZi" secondAttribute="bottom" id="ild-Ks-VNl"/>
-                                            <constraint firstAttribute="bottom" secondItem="3bT-Nw-mcF" secondAttribute="bottom" id="pkR-Vm-Gkr"/>
-                                        </constraints>
-                                    </stackView>
-                                </subviews>
-                                <color key="backgroundColor" red="0.87878481217616577" green="0.87878481217616577" blue="0.87878481217616577" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstItem="0Ge-Ax-Uvd" firstAttribute="top" secondItem="CBN-Z2-Qsb" secondAttribute="top" id="A7Q-sJ-VCP"/>
-                                    <constraint firstItem="0Ge-Ax-Uvd" firstAttribute="bottom" secondItem="CBN-Z2-Qsb" secondAttribute="bottom" id="HZ0-Co-7sU"/>
-                                    <constraint firstItem="CBN-Z2-Qsb" firstAttribute="height" secondItem="DcY-4c-wcJ" secondAttribute="height" id="SJc-O3-gN0"/>
-                                    <constraint firstAttribute="height" constant="80" id="dbV-tN-6oy"/>
-                                    <constraint firstItem="0Ge-Ax-Uvd" firstAttribute="width" secondItem="CBN-Z2-Qsb" secondAttribute="width" multiplier="5:1" id="nTC-D3-LWw"/>
-                                </constraints>
-                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="5Y0-p0-KkE" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="3NW-zn-Pzy"/>
                             <constraint firstItem="5Y0-p0-KkE" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="7yW-xz-5jB"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DcY-4c-wcJ" secondAttribute="trailing" constant="8" id="QTz-4d-7SO"/>
-                            <constraint firstItem="DcY-4c-wcJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="TRr-ci-6vQ"/>
                             <constraint firstItem="5Y0-p0-KkE" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="ZCU-nC-qCj"/>
-                            <constraint firstItem="DcY-4c-wcJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="aBr-ON-8uH"/>
                             <constraint firstItem="5Y0-p0-KkE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="pxc-fV-nHJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -98,11 +38,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="cityName" destination="JEo-tF-B9N" id="USv-tk-TbH"/>
-                        <outlet property="information" destination="7wg-CK-nPo" id="COd-fl-x8A"/>
                         <outlet property="mapKitView" destination="5Y0-p0-KkE" id="qlo-y6-r9F"/>
-                        <outlet property="temperature" destination="3bT-Nw-mcF" id="xKl-k9-Rf4"/>
-                        <outlet property="weatherImageView" destination="CBN-Z2-Qsb" id="Vx2-Wx-sxO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

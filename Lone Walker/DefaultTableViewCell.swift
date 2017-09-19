@@ -10,6 +10,8 @@ import UIKit
 
 class DefaultTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var temperatureLabel: UILabel!
+    @IBOutlet weak var weatherImageView: UIImageView!
     @IBOutlet weak var instructions: UILabel!
     @IBOutlet weak var notice: UILabel!
     @IBOutlet weak var distance: UILabel!

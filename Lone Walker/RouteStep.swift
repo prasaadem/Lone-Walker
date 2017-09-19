@@ -14,6 +14,8 @@ class RouteStep: NSObject {
     var notice: String?
     var distance: CLLocationDistance
     var transportType: MKDirectionsTransportType
+    var polyline:MKPolyline?
+    var weatherDataModel:WeatherDataModel  = WeatherDataModel()
     
     override init(){
         instructions = ""

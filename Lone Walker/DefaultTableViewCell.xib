@@ -15,55 +15,65 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="DefaultTableViewCell" customModule="Lone_Walker" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="50" id="KGk-i7-Jjw" customClass="DefaultTableViewCell" customModule="Lone_Walker" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="49.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZsH-do-obf">
-                        <rect key="frame" x="8" y="0.0" width="304" height="23"/>
+                        <rect key="frame" x="58" y="0.0" width="196" height="18"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ft-6f-1GD">
-                        <rect key="frame" x="8" y="23" width="148" height="23"/>
+                        <rect key="frame" x="58" y="31.5" width="196" height="18"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nVs-GQ-Ydc">
-                        <rect key="frame" x="164" y="21" width="148" height="23"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="o4m-Af-2H3">
+                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="YIp-kW-4Bw"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="36℃" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nVs-GQ-Ydc">
+                        <rect key="frame" x="262" y="0.0" width="50" height="49.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="skG-WF-93w"/>
+                        </constraints>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="nVs-GQ-Ydc" firstAttribute="width" secondItem="2Ft-6f-1GD" secondAttribute="width" id="OWU-Rw-lvn"/>
-                    <constraint firstItem="ZsH-do-obf" firstAttribute="height" secondItem="2Ft-6f-1GD" secondAttribute="height" id="axs-KE-Hw7"/>
-                    <constraint firstItem="2Ft-6f-1GD" firstAttribute="top" secondItem="ZsH-do-obf" secondAttribute="bottom" id="bWZ-5p-QsF"/>
-                    <constraint firstItem="nVs-GQ-Ydc" firstAttribute="leading" secondItem="2Ft-6f-1GD" secondAttribute="trailing" constant="8" id="knY-1O-9M0"/>
-                    <constraint firstItem="nVs-GQ-Ydc" firstAttribute="height" secondItem="2Ft-6f-1GD" secondAttribute="height" id="lqh-0I-daL"/>
+                    <constraint firstItem="ZsH-do-obf" firstAttribute="leading" secondItem="o4m-Af-2H3" secondAttribute="trailing" constant="8" id="4sT-wV-Pcj"/>
+                    <constraint firstAttribute="bottom" secondItem="2Ft-6f-1GD" secondAttribute="bottom" id="592-kH-UxI"/>
+                    <constraint firstAttribute="trailing" secondItem="nVs-GQ-Ydc" secondAttribute="trailing" constant="8" id="85W-p2-Yca"/>
+                    <constraint firstItem="2Ft-6f-1GD" firstAttribute="leading" secondItem="ZsH-do-obf" secondAttribute="leading" id="8O0-Ga-CwP"/>
+                    <constraint firstItem="nVs-GQ-Ydc" firstAttribute="leading" secondItem="ZsH-do-obf" secondAttribute="trailing" constant="8" id="CuA-gQ-h92"/>
+                    <constraint firstAttribute="bottom" secondItem="nVs-GQ-Ydc" secondAttribute="bottom" id="GJq-Md-iMp"/>
+                    <constraint firstItem="2Ft-6f-1GD" firstAttribute="trailing" secondItem="ZsH-do-obf" secondAttribute="trailing" id="Mfz-vc-4l6"/>
+                    <constraint firstItem="o4m-Af-2H3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="N12-aT-L6L"/>
+                    <constraint firstItem="ZsH-do-obf" firstAttribute="top" secondItem="o4m-Af-2H3" secondAttribute="top" id="QLM-eE-Ilk"/>
+                    <constraint firstItem="o4m-Af-2H3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Ucv-IT-0VK"/>
+                    <constraint firstItem="2Ft-6f-1GD" firstAttribute="height" secondItem="ZsH-do-obf" secondAttribute="height" id="YJs-sa-UPm"/>
+                    <constraint firstItem="nVs-GQ-Ydc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="hMe-Xy-8WC"/>
+                    <constraint firstAttribute="bottom" secondItem="o4m-Af-2H3" secondAttribute="bottom" id="v7p-Bq-Hu5"/>
                 </constraints>
             </tableViewCellContentView>
-            <constraints>
-                <constraint firstAttribute="trailing" secondItem="nVs-GQ-Ydc" secondAttribute="trailing" constant="8" id="1JE-gc-Ops"/>
-                <constraint firstItem="ZsH-do-obf" firstAttribute="centerX" secondItem="KGk-i7-Jjw" secondAttribute="centerX" id="Alu-UU-KYo"/>
-                <constraint firstAttribute="trailing" secondItem="ZsH-do-obf" secondAttribute="trailing" constant="8" id="BvY-Bb-RLR"/>
-                <constraint firstItem="ZsH-do-obf" firstAttribute="leading" secondItem="KGk-i7-Jjw" secondAttribute="leading" constant="8" id="IGi-xv-nBp"/>
-                <constraint firstAttribute="bottom" secondItem="2Ft-6f-1GD" secondAttribute="bottom" constant="-2" id="VSB-0R-JVc"/>
-                <constraint firstItem="2Ft-6f-1GD" firstAttribute="leading" secondItem="KGk-i7-Jjw" secondAttribute="leading" constant="8" id="ggF-yL-LiM"/>
-                <constraint firstItem="ZsH-do-obf" firstAttribute="top" secondItem="KGk-i7-Jjw" secondAttribute="top" id="kad-i4-eyI"/>
-                <constraint firstAttribute="bottom" secondItem="nVs-GQ-Ydc" secondAttribute="bottom" id="rDc-uv-iPD"/>
-            </constraints>
             <connections>
                 <outlet property="distance" destination="2Ft-6f-1GD" id="HhR-JS-MwR"/>
                 <outlet property="instructions" destination="ZsH-do-obf" id="yk7-YH-ym5"/>
                 <outlet property="notice" destination="nVs-GQ-Ydc" id="3fL-Rg-aPS"/>
+                <outlet property="temperatureLabel" destination="nVs-GQ-Ydc" id="cqp-sb-Vbq"/>
+                <outlet property="weatherImageView" destination="o4m-Af-2H3" id="b2G-1y-pQN"/>
             </connections>
+            <point key="canvasLocation" x="34" y="51"/>
         </tableViewCell>
     </objects>
 </document>

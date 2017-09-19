@@ -15,14 +15,11 @@ import SwiftyJSON
 
 class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate,UISearchBarDelegate,MKMapViewDelegate,CLLocationManagerDelegate{
     
-    @IBOutlet weak var temperature: UILabel!
-    @IBOutlet weak var information: UILabel!
-    @IBOutlet weak var cityName: UILabel!
-    @IBOutlet weak var weatherImageView: UIImageView!
     @IBOutlet weak var mapKitView: MKMapView!
     let locationManager = CLLocationManager()
     var sourceLocation = CLLocationCoordinate2D()
     var destinationLocation = CLLocationCoordinate2D()
+    var steps:Array = [RouteStep]()
     
     let WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather"
     let APP_ID = "13578c20440b1497bdc6ac12bb841315"
@@ -53,10 +50,10 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate,UIS
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        addBottomSheetView()
     }
     
     func addBottomSheetView() {
-        if self.childViewControllers.count == 0 {
             let bottomSheetVC = ScrollableBottomSheetViewController()
             
             self.addChildViewController(bottomSheetVC)
@@ -66,7 +63,6 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate,UIS
             let height = view.frame.height
             let width  = view.frame.width
             bottomSheetVC.view.frame = CGRect(x: 0, y: self.view.frame.maxY, width: width, height: height)
-        }
     }
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
@@ -110,19 +106,41 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate,UIS
             let overlays = self.mapKitView.overlays
             self.mapKitView.removeOverlays(overlays)
             let route = response.routes[0]
+            
             let childViewController:ScrollableBottomSheetViewController = self.childViewControllers[0] as! ScrollableBottomSheetViewController
             childViewController.routeSteps = [RouteStep]()
             for step in route.steps {
-                let routeStep = RouteStep()
-                routeStep.distance = step.distance
-                routeStep.instructions = step.instructions
-                routeStep.notice = step.notice
-                routeStep.transportType = step.transportType
-                childViewController.routeSteps.append(routeStep)
-//                print(routeStep.notice)
+                let midPoint:CLLocationCoordinate2D = MKCoordinateForMapPoint(step.polyline.points()[step.polyline.pointCount/2])
+                
+                let params : [String:String] = ["lat" : String(midPoint.latitude),"lon" : String(midPoint.longitude),"appid" : self.APP_ID]
+                
+                Alamofire.request(self.WEATHER_URL, method: .get, parameters: params).responseJSON{
+                    response in
+                    if response.result.isSuccess{
+                        let json : JSON = JSON(response.result.value!)
+                        if let tempResult = json["main"]["temp"].double{
+                            let data = WeatherDataModel()
+                            data.temperature = Int(tempResult - 273.15)
+                            data.city = json["name"].stringValue
+                            data.condition = json["weather"][0]["id"].intValue
+                            data.weatherIconName = data .updateWeatherIcon(condition: data.condition)
+                            let routeStep = RouteStep()
+                            routeStep.distance = step.distance
+                            routeStep.instructions = step.instructions
+                            routeStep.notice = step.notice
+                            routeStep.transportType = step.transportType
+                            routeStep.polyline = step.polyline
+                            routeStep.weatherDataModel = data
+                            print("\(data.temperature)")
+                            childViewController.routeSteps.append(routeStep)
+                            childViewController.tableView .reloadData()
+                        }
+                    }else{
+                        print("Error \(String(describing: response.result.error))")
+                    }
+                }
             }
-            childViewController.tableView .reloadData()
-            childViewController.tableView .isHidden = false
+//            childViewController.tableView .isHidden = false
             self.mapKitView.add(route.polyline, level: .aboveRoads)
             
             let rect = route.polyline.boundingMapRect
@@ -175,7 +193,11 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate,UIS
                 self.mapKitView.addAnnotation(annotation)
         
                 self.destinationLocation = CLLocationCoordinate2DMake(latitude!, longitude!)
-                self.addBottomSheetView()
+                
+                let params : [String:String] = ["lat" : String(self.destinationLocation.latitude),"lon" : String(self.destinationLocation.longitude),"appid" : self.APP_ID]
+                
+                self.getWeatherData(url: self.WEATHER_URL, parameters: params)
+                
                 self.getDirections()
                 
                 let span = MKCoordinateSpanMake(0.1, 0.1)
@@ -228,10 +250,12 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate,UIS
     
     //Write the updateUIWithWeatherData method here:
     func updateUIWithWeatherData(){
-        cityName.text = weatherDataModel.city
-        temperature.text = "\(weatherDataModel.temperature)°C"
-        weatherImageView.image = UIImage(named: weatherDataModel.weatherIconName)
-        information.text = weatherDataModel.weatherIconName
+        let childViewController:ScrollableBottomSheetViewController = self.childViewControllers[0] as! ScrollableBottomSheetViewController
+        
+        childViewController.placeName.text = weatherDataModel.city
+        childViewController.temperatureLabel.text = "\(weatherDataModel.temperature)°C"
+        childViewController.weatherImageView.image = UIImage(named: weatherDataModel.weatherIconName)
+        childViewController.placemark.text = weatherDataModel.weatherIconName
     }
     
     //MARK: - Location Manager Delegate Methods
