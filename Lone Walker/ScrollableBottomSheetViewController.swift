@@ -31,6 +31,9 @@ class ScrollableBottomSheetViewController: UIViewController {
         let gesture = UIPanGestureRecognizer.init(target: self, action: #selector(ScrollableBottomSheetViewController.panGesture))
         gesture.delegate = self
         view.addGestureRecognizer(gesture)
+        if routeSteps.count == 0 {
+            tableView.isHidden = true
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -94,7 +97,6 @@ class ScrollableBottomSheetViewController: UIViewController {
         bluredView.frame = UIScreen.main.bounds
         view.insertSubview(bluredView, at: 0)
     }
-
 }
 
 extension ScrollableBottomSheetViewController: UITableViewDelegate, UITableViewDataSource {

@@ -17,6 +17,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate,UIS
     @IBOutlet weak var mapKitView: MKMapView!
     let locationManager = CLLocationManager()
     var sourceLocation = CLLocationCoordinate2D()
+    var destinationLocation = CLLocationCoordinate2D()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,19 +43,20 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate,UIS
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.addBottomSheetView()
     }
     
     func addBottomSheetView() {
-        let bottomSheetVC = ScrollableBottomSheetViewController()
-        
-        self.addChildViewController(bottomSheetVC)
-        self.view.addSubview(bottomSheetVC.view)
-        bottomSheetVC.didMove(toParentViewController: self)
-        
-        let height = view.frame.height
-        let width  = view.frame.width
-        bottomSheetVC.view.frame = CGRect(x: 0, y: self.view.frame.maxY, width: width, height: height)
+        if self.childViewControllers.count == 0 {
+            let bottomSheetVC = ScrollableBottomSheetViewController()
+            
+            self.addChildViewController(bottomSheetVC)
+            self.view.addSubview(bottomSheetVC.view)
+            bottomSheetVC.didMove(toParentViewController: self)
+            
+            let height = view.frame.height
+            let width  = view.frame.width
+            bottomSheetVC.view.frame = CGRect(x: 0, y: self.view.frame.maxY, width: width, height: height)
+        }
     }
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
@@ -65,7 +67,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate,UIS
         return renderer
     }
     
-    func getDirections(destinationLocation:CLLocationCoordinate2D){
+    func getDirections(){
         
         let annotation = MKPointAnnotation()
         annotation.coordinate = sourceLocation
@@ -110,6 +112,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate,UIS
 //                print(routeStep.notice)
             }
             childViewController.tableView .reloadData()
+            childViewController.tableView .isHidden = false
             self.mapKitView.add(route.polyline, level: .aboveRoads)
             
             let rect = route.polyline.boundingMapRect
@@ -161,13 +164,13 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate,UIS
                 annotation.coordinate = self.sourceLocation
                 self.mapKitView.addAnnotation(annotation)
         
-                let coordinate:CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude!, longitude!)
-                
-                self.getDirections(destinationLocation: coordinate)
+                self.destinationLocation = CLLocationCoordinate2DMake(latitude!, longitude!)
+                self.addBottomSheetView()
+                self.getDirections()
                 
                 let span = MKCoordinateSpanMake(0.1, 0.1)
                 
-                let region = MKCoordinateRegionMake(coordinate, span)
+                let region = MKCoordinateRegionMake(self.destinationLocation, span)
                 self.mapKitView.setRegion(region, animated: true)
                 let childViewController:ScrollableBottomSheetViewController = self.childViewControllers[0] as! ScrollableBottomSheetViewController
                 childViewController.placeName.text = response?.mapItems[0].name
