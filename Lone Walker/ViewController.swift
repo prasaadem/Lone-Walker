@@ -40,6 +40,23 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate,UIS
         getDirections(destinationLocation: destinationLocation)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        addBottomSheetView()
+    }
+    
+    func addBottomSheetView() {
+        let bottomSheetVC = ScrollableBottomSheetViewController()
+        
+        self.addChildViewController(bottomSheetVC)
+        self.view.addSubview(bottomSheetVC.view)
+        bottomSheetVC.didMove(toParentViewController: self)
+        
+        let height = view.frame.height
+        let width  = view.frame.width
+        bottomSheetVC.view.frame = CGRect(x: 0, y: self.view.frame.maxY, width: width, height: height)
+    }
+    
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         
         let renderer = MKPolylineRenderer(overlay: overlay)
@@ -77,9 +94,18 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate,UIS
                 }
                 return
             }
+            
             let overlays = self.mapKitView.overlays
             self.mapKitView.removeOverlays(overlays)
             let route = response.routes[0]
+            for step in route.steps {
+                let routeStep = RouteStep()
+                routeStep.distance = step.distance
+                routeStep.instructions = step.instructions
+                routeStep.notice = step.notice
+                routeStep.transportType = step.transportType
+//                print(routeStep)
+            }
             self.mapKitView.add(route.polyline, level: .aboveRoads)
             
             let rect = route.polyline.boundingMapRect
@@ -139,6 +165,8 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate,UIS
                 
                 let region = MKCoordinateRegionMake(coordinate, span)
                 self.mapKitView.setRegion(region, animated: true)
+                print("***************************")
+                print(response?.mapItems[0])
             }
         }
     }
